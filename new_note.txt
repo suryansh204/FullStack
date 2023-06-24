@@ -1,0 +1,32 @@
+sequenceDiagram
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->>browser: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ]
+Note right of browser: The browser executes the callback function that renders the notes
+
+
+
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+
+server-->browser: HTML status code 302 found
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+
+Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->>browser: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ]
+Note right of browser: The browser executes the callback function that renders the notes
