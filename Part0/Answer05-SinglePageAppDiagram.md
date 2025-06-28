@@ -25,4 +25,4 @@ sequenceDiagram
     server-->>browser: [{content: "my hearth", date: "2025-06-27T16:13:59.825Z"},…]
     deactivate server
 
-    Note right of browser: The browser executes the callback function that renders the notes
+    Note right of browser: JavaScript renders notes dynamically without full page reload
